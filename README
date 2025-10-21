@@ -1,0 +1,47 @@
+Programarea Calculatoarelor, seria CC
+Tema2 - 2048
+
+Pentru functia de meniu am decis sa generez o fereastra noua, unde am introdus
+un vector cu alegerile sale si un highlight pentru a evidentia pe care din cele
+3 optiuni se afla jucatorul.
+
+Pentru functia de pregatire a jocului, am initializat cu 0 fiecare celula a matricei
+si dupa ceea am luat 6 numere generate random pentru pozitia si valoare celor doua valori
+de inceput. Am verificat ca al doilea numar nu poate coincide cu primul, astfel evitand
+posibilitatea de a se suprapune.
+
+Pentru functia de afisare a tabelului in timpul jocului, am optat pentru a adauga manual
+grid ul si culorile pentru fiecare numar. Avand putine culori, am ajuns sa departajez 
+numerele finale prin schimbarea fundalului. Am decis sa adaug intructiunile in dreapta 
+jocului pentru a fi vizibile.
+
+Pentru miscarea celulelor am vrut sa pornesc de la capatul liniei/coloanei si sa gasesc
+primul element diferint de 0. Am initializat un K pentru a parcurge pozitiile si sa verific
+daca mai sunt celule diferite de 0. Daca pe ultima pozitie a liniei/coloanei nu este un numar,
+atunci il mutam mai in fata pana gasim o celula diferita de 0.
+Dupa aceea sa aduce urmatorul element diferit de 0 daca mai exista.
+Daca sunt egale cu pozitia initiala, se combina , se face 0 pe ultima celula si sa adune la scor.
+Am folosit un loop pentru a scapa de cazul in care le combina direct pe toate.
+Daca as avea 4 de 2 pe o linie, din mutare o sa reiasa doi de 4 si abia dupa un 8. Nu direct 8.
+Toate functiile adauga la scor cat s-a produs in acea miscare.
+
+Pentru functia de generat random 2/4 pe pozitii libere, am cautat mai intai in matrice pozitiile libere
+si le-am salvat intr-un vector, inmultind linia cu 4 si adunand coloana, astfel puteam sa scot pe oricare 
+doream prin impartire la 4 sau impartire cu rest la patru.
+Dupa aceea aleg o pozitie random din acel vector si scot randul si coloana.
+In acea pozitie mai pun un numar random care determina daca va aparea un 2 sau un 4, avand probabilitatea
+de 50%.
+
+Functia de game_over verifica daca jocul s-a incheiat datorita unei victorii sau ca nu mai sunt mutari posibile.
+Daca se identifica in tabel un 2048, functia returneaza 2 care inseamna victorie.
+Daca returneaza 1, inseamna ca jocul s-a incheiat si nu mai exista mutari posibile.
+Pentru a determina ca nu mai sunt mutari posibile, mai intai verifica ca nu mai exista vreun 0 pe tabel.
+Dupa aceea verific daca oricare doua celule alaturate au aceeasi valore.
+Daca nu gasesc, inseamna ca jocul s-a incheiat.
+
+In functia de start new game, creez o noua fereastra in care se va desfasura jocul.
+Intr-un while infinit preiau comenzile introduse de la tastatura.
+Jocul se incheie daca se apasa tasta q , daca ai castigat sau ai pierdut.
+
+Pentru compilare: make
+Pentru rulare: make run
