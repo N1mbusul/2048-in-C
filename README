@@ -1,5 +1,5 @@
 Programarea Calculatoarelor, seria CC
-Tema2 - 2048
+2048 game
 
 Pentru functia de meniu am decis sa generez o fereastra noua, unde am introdus
 un vector cu alegerile sale si un highlight pentru a evidentia pe care din cele
